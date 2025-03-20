@@ -1,1 +1,60 @@
-<h1>Välkommen till Aivy.se!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovable Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-black via-gray-900 to-black text-white flex flex-col items-center justify-center min-h-screen">
+    
+    <!-- Navbar -->
+    <header class="w-full max-w-6xl flex justify-between items-center py-4 px-6">
+        <div class="flex items-center space-x-3">
+            <span class="h-8 w-8 bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg"></span>
+            <h1 class="text-2xl font-bold">lovable</h1>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#" class="text-gray-300 hover:text-white">Support</a>
+            <a href="#" class="text-gray-300 hover:text-white">Launched</a>
+            <a href="#" class="text-gray-300 hover:text-white">Learn</a>
+        </nav>
+        <div class="flex space-x-4">
+            <button class="hidden md:block bg-gray-800 px-4 py-2 rounded-lg">Sign in</button>
+            <button class="bg-pink-500 px-4 py-2 rounded-lg">Sign up</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="text-center mt-20">
+        <h2 class="text-4xl font-bold">Idea to app in seconds.</h2>
+        <p class="text-gray-400 mt-2">Lovable is your superhuman full stack engineer.</p>
+
+        <!-- Search Bar -->
+        <div class="relative mt-6 max-w-lg mx-auto">
+            <input 
+                type="text" 
+                placeholder="Ask Lovable to create a landing page"
+                class="w-full px-4 py-3 text-gray-200 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+            >
+            <div class="absolute top-1/2 transform -translate-y-1/2 right-3">
+                <button class="text-gray-400">🔍</button>
+            </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="flex justify-center mt-6 space-x-4">
+            <button class="bg-gray-700 px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-600">Expense tracker</button>
+            <button class="bg-gray-700 px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-600">Weather dashboard</button>
+            <button class="bg-gray-700 px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-600">File uploader</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-10 text-gray-500 text-sm">
+            <p>Join 140,000+ people using Lovable</p>
+            <p class="mt-2">⭐ 4.9 / 5.0 - 150 reviews | Featured in <span class="text-white font-bold">WIRED</span></p>
+        </div>
+    </div>
+
+</body>
+</html>
