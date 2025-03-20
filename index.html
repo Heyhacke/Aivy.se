@@ -793,7 +793,6 @@ nav ul li a:hover {
     white-space: nowrap;
 }
 .header-content {
-.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -802,8 +801,16 @@ nav ul li a:hover {
     padding: 0 30px;
 }
 
-.logo-container {
-    margin-right: auto; /* Trycker ut loggan till vänster */
+/* Tvinga loggan till vänster */
+.logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+/* Justera loggans storlek */
+.logo img {
+    height: 50px; /* Anpassa efter behov */
+    width: auto;
 }
     </style>
 </head>
@@ -811,22 +818,21 @@ nav ul li a:hover {
     <!-- Header -->
 <header class="header">
     <div class="container">
-        <div class="header-content">
-<a href="index.html" class="logo">
-    <img src="aivy235.png" alt="Aivy Logo">
-</a>
-            <nav>
-                <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#case-studies">Case Studies</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#contact" class="cta-button">Boka en demo</a>
-        </div>
-    </div>
+<div class="header-content">
+    <a href="index.html" class="logo">
+        <img src="aivy235.png" alt="Aivy Logo">
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#" class="cta-button">Boka en demo</a>
+</div>
 </header>
     <!-- Hero Section -->
 <section class="hero">
