@@ -776,6 +776,9 @@
   border-right: 3px solid var(--primary);
   animation: blinkCursor 0.8s steps(2) infinite;
 }
+.dynamic-text::before {
+    content: " ";
+}
 
 @keyframes blinkCursor {
   from { border-right-color: var(--primary); }
