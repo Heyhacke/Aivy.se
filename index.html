@@ -68,10 +68,11 @@
     align-items: center;
 }
 
-/* Logga - Passar bättre med headerhöjd */
+/* Justerad logga */
 .logo img {
-    height: 50px; /* Justerad så den känns premium */
-    width: auto;
+    height: 60px; /* Anpassad höjd för att matcha CTA-knappen */
+    width: auto; /* Behåller proportionerna */
+    display: block;
 }
 
 /* Navigation */
@@ -792,10 +793,13 @@ nav ul li a:hover {
     white-space: nowrap;
 }
 .header-content {
+.header-content {
     display: flex;
-    justify-content: flex-end; /* Flyttar menyn till höger */
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
 }
 
 .logo-container {
@@ -808,9 +812,9 @@ nav ul li a:hover {
 <header class="header">
     <div class="container">
         <div class="header-content">
-            <a href="#" class="logo">
-                <img src="AIVYLOGO.png" alt="Aivy Logo">
-            </a>
+<a href="index.html" class="logo">
+    <img src="aivy235.png" alt="Aivy Logo">
+</a>
             <nav>
                 <ul>
                     <li><a href="#services">Services</a></li>
