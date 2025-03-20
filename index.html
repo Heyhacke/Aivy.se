@@ -49,8 +49,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* Ökade från 50px för att få en bättre känsla */
-    background: rgba(15, 15, 27, 0.8); /* Liten ökning av transparens */
+    height: 70px;
+    background: rgba(15, 15, 27, 0.8);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
@@ -58,28 +58,36 @@
     z-index: 1000;
 }
 
-/* Header Content - Justerar layouten */
 .header-content {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-/* Justerad logga */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Trycker resten av menyn och CTA till höger */
+}
+
 .logo img {
-    height: 60px; /* Anpassad höjd för att matcha CTA-knappen */
-    width: auto; /* Behåller proportionerna */
-    display: block;
+    height: 50px; /* Anpassa efter behov */
+    width: auto;
 }
 
 /* Navigation */
+nav {
+    flex-grow: 1; /* Låter menyn växa så att allt trycks ut rätt */
+    display: flex;
+    justify-content: center; /* Håller menyn centrerad */
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 35px; /* Lite mer mellanrum för en mer lyxig känsla */
+    gap: 35px;
     margin: 0;
     padding: 0;
 }
@@ -87,7 +95,7 @@ nav ul {
 nav ul li a {
     color: var(--light);
     text-decoration: none;
-    font-size: 17px; /* Ökad för bättre synlighet */
+    font-size: 17px;
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -99,13 +107,14 @@ nav ul li a:hover {
 /* CTA-knappen i Headern */
 .header .cta-button {
     padding: 10px 20px;
-    font-size: 15px; /* Liten ökning */
+    font-size: 15px;
     background-color: var(--primary);
     color: var(--light);
     border-radius: 6px;
     font-weight: bold;
     text-decoration: none;
     transition: background 0.3s ease, transform 0.2s;
+    margin-left: auto; /* Trycker knappen till höger */
 }
 
 .header .cta-button:hover {
@@ -817,22 +826,21 @@ nav ul li a:hover {
 <body>
     <!-- Header -->
 <header class="header">
-    <div class="container">
-<div class="header-content">
-    <a href="index.html" class="logo">
-        <img src="aivy235.png" alt="Aivy Logo">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <a href="#" class="cta-button">Boka en demo</a>
-</div>
+    <div class="header-content">
+        <a href="index.html" class="logo">
+            <img src="aivy235.png" alt="Aivy Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="cta-button">Boka en demo</a>
+    </div>
 </header>
     <!-- Hero Section -->
 <section class="hero">
