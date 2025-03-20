@@ -754,6 +754,33 @@
     width: 100%;
     height: auto;
 }
+.typing-container {
+  font-size: 1.5rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.static-text {
+  font-weight: 500;
+  color: var(--light);
+}
+
+.dynamic-text {
+  font-weight: bold;
+  color: var(--primary);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary);
+  animation: blinkCursor 0.8s steps(2) infinite;
+}
+
+@keyframes blinkCursor {
+  from { border-right-color: var(--primary); }
+  to { border-right-color: transparent; }
+}
     </style>
 </head>
 <body>
@@ -786,6 +813,10 @@
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
+<div class="typing-container">
+    <p class="static-text">AIVY kan hjälpa er med </p>
+    <p class="dynamic-text"></p>
+</div>
                 <h1>Transform Your Business with AI Automation</h1>
                 <p>We help forward-thinking companies leverage artificial intelligence to automate workflows, enhance productivity, and drive growth.</p>
                 <a href="#contact" class="cta-button">Get Started</a>
@@ -993,3 +1024,36 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>What industries do you work
+<script>
+    const dynamicText = document.querySelector(".dynamic-text");
+    const textArray = ["automatiserade blogginlägg.", "kvalitativ lead-generering.", "effektiv AI-analys."];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentText = textArray[textIndex];
+        if (isDeleting) {
+            dynamicText.textContent = currentText.substring(0, charIndex--);
+        } else {
+            dynamicText.textContent = currentText.substring(0, charIndex++);
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1500); // Paus innan radering
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+            setTimeout(typeEffect, 300); // Paus innan nästa text börjar skrivas
+        } else {
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeEffect, 1000); // Starta animationen efter laddning
+    });
+</script>
+</body>
+</html>
