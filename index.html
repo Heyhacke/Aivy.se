@@ -1183,7 +1183,7 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true, 
-                "mode": "repulse" // Får partiklarna att fly från musen
+                "mode": "attract" // " repulse Får partiklarna att fly från musen
             },
             "onclick": {
                 "enable": true,
@@ -1205,10 +1205,11 @@ particlesJS("particles-js", {
                 "opacity": 0.8,
                 "speed": 3
             },
-            "repulse": {
-                "distance": 100, // Justera för hur starkt partiklarna flyttar sig bort från musen
-                "duration": 0.4
-            },
+          "attract": {
+    "distance": 150, // Justera avståndet för hur långt de påverkas av musen
+    "duration": 0.4,
+    "speed": 1
+},
             "push": {
                 "particles_nb": 4
             },
