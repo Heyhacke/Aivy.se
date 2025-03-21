@@ -1137,7 +1137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 60, // Justerat antal för bättre täckning runt text
+            "value": 60, 
             "density": {
                 "enable": true,
                 "value_area": 800 
@@ -1170,12 +1170,12 @@ particlesJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 0.2, // Startar långsamt
+            "speed": 0.2, 
             "direction": "none",
             "random": false,
             "straight": false,
-            "out_mode": "out", // Ser till att partiklarna inte försvinner
-            "bounce": false
+            "out_mode": "bounce", // Förhindrar att partiklarna försvinner helt
+            "bounce": true
         }
     },
     "interactivity": {
@@ -1206,7 +1206,7 @@ particlesJS("particles-js", {
                 "speed": 3
             },
             "attract": {
-                "distance": 180, // Hur långt partiklarna påverkas av musen
+                "distance": 180, 
                 "duration": 0.6,
                 "speed": 0.5
             },
@@ -1221,18 +1221,19 @@ particlesJS("particles-js", {
     "retina_detect": true
 });
 
-// Gradvis öka hastigheten automatiskt
+// ✅ Gradvis öka hastigheten utan att krascha
 let speed = 0.2;
-let maxSpeed = 2.5; // Högsta hastigheten efter ökning
+let maxSpeed = 2.5; 
 let interval = setInterval(() => {
     if (speed < maxSpeed) {
-        speed += 0.05; // Ökar successivt
-        window.pJSDom[0].pJS.particles.move.speed = speed; // Uppdaterar hastigheten i realtid
+        speed += 0.05; 
+        if (window.pJSDom.length > 0) {  // Kontrollera att particles.js är initierat
+            window.pJSDom[0].pJS.particles.move.speed = speed; 
+        }
     } else {
-        clearInterval(interval); // Stoppar ökning när max uppnåtts
+        clearInterval(interval); 
     }
-}, 500); // Uppdatering var 500ms (halv sekund)
-});
+}, 500); 
 </script>
 </body>
 </html>
