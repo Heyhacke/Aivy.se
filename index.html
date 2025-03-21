@@ -1137,10 +1137,10 @@ document.addEventListener("DOMContentLoaded", () => {
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 60, 
+            "value": 80, // Ökad grundmängd
             "density": {
                 "enable": true,
-                "value_area": 800 
+                "value_area": 1000 
             }
         },
         "color": {
@@ -1170,11 +1170,11 @@ particlesJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 0.2, 
+            "speed": 0.2, // Startar långsamt
             "direction": "none",
             "random": false,
             "straight": false,
-            "out_mode": "bounce", // Förhindrar att partiklarna försvinner helt
+            "out_mode": "bounce",
             "bounce": true
         }
     },
@@ -1183,11 +1183,10 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true, 
-                "mode": "attract" // Drar partiklar mot musen
+                "mode": "grab" // Får partiklar att dras mot musen
             },
             "onclick": {
-                "enable": true,
-                "mode": "push"
+                "enable": false
             },
             "resize": true
         },
@@ -1206,34 +1205,28 @@ particlesJS("particles-js", {
                 "speed": 3
             },
             "attract": {
-                "distance": 180, 
-                "duration": 0.6,
-                "speed": 0.5
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
+                "distance": 200, // Förbättrad musdragning
+                "duration": 0.5,
+                "speed": 0.8
             }
         }
     },
     "retina_detect": true
 });
 
-// ✅ Gradvis öka hastigheten utan att krascha
+// ✅ Gradvis öka hastigheten utan att klicka
 let speed = 0.2;
-let maxSpeed = 2.5; 
+let maxSpeed = 2.0; 
 let interval = setInterval(() => {
     if (speed < maxSpeed) {
         speed += 0.05; 
-        if (window.pJSDom.length > 0) {  // Kontrollera att particles.js är initierat
+        if (window.pJSDom.length > 0) { 
             window.pJSDom[0].pJS.particles.move.speed = speed; 
         }
     } else {
-        clearInterval(interval); 
+        clearInterval(interval);
     }
-}, 500); 
+}, 500);
 </script>
 </body>
 </html>
