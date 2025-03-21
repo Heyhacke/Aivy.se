@@ -190,14 +190,16 @@ nav ul li a:hover {
     font-size: 1.2rem;
     background-color: var(--primary);
     color: var(--light);
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .hero .cta-button:hover {
     background-color: var(--primary-light);
+    transform: translateY(-3px); /* Lyft-effekt */
+    box-shadow: 0 5px 15px rgba(110, 87, 224, 0.4); /* Ljusare skugga */
 }
         /* Trust Elements */
         .trust-elements {
@@ -877,7 +879,7 @@ nav ul li a:hover {
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <a href="#contact" class="cta-button">Boka en demo</a>
+        <a href="#contact" class="cta-button">10 minuters demo</a>
     </div>
 </header>
     <!-- Hero Section -->
@@ -889,9 +891,9 @@ nav ul li a:hover {
     <span class="static-text">Aivy gör det enkelt att</span>
     <span class="dynamic-text"></span>
 </div>
-            <h1>Transform Your Business with AI Automation</h1>
+            <h1>Framtidens företag byggs idag – vi hjälper er forma ert nästa steg</h1>
             <p class="subheadline">
-                Vi hjälper företag att automatisera arbetsflöden, förbättra produktivitet och driva tillväxt.
+              Vi hjälper företag att använda AI för att automatisera arbetsflöden, förbättra produktivitet och driva tillväxt – på era villkor. Ni fokuserar på affären, vi tar hand om tekniken
             </p>
             <a href="#contact" class="cta-button">Boka en demo</a>
         </div>
@@ -1137,10 +1139,10 @@ document.addEventListener("DOMContentLoaded", () => {
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 80, // Ökad grundmängd
+            "value": 80,
             "density": {
                 "enable": true,
-                "value_area": 1000 
+                "value_area": 1000
             }
         },
         "color": {
@@ -1154,7 +1156,7 @@ particlesJS("particles-js", {
             }
         },
         "opacity": {
-            "value": 0.4, 
+            "value": 0.4,
             "random": true
         },
         "size": {
@@ -1170,7 +1172,7 @@ particlesJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 0.2, // Startar långsamt
+            "speed": 0.4, // Lite snabbare initialt
             "direction": "none",
             "random": false,
             "straight": false,
@@ -1182,8 +1184,8 @@ particlesJS("particles-js", {
         "detect_on": "canvas",
         "events": {
             "onhover": {
-                "enable": true, 
-                "mode": "grab" // Får partiklar att dras mot musen
+                "enable": true,
+                "mode": "attract" // Gör att partiklar "söker sig" mot musen
             },
             "onclick": {
                 "enable": false
@@ -1192,36 +1194,29 @@ particlesJS("particles-js", {
         },
         "modes": {
             "grab": {
-                "distance": 180,
+                "distance": 200, // Justerar hur nära musen de börjar attraheras
                 "line_linked": {
                     "opacity": 1
                 }
             },
-            "bubble": {
-                "distance": 250,
-                "size": 10,
-                "duration": 2,
-                "opacity": 0.8,
-                "speed": 3
-            },
             "attract": {
-                "distance": 200, // Förbättrad musdragning
-                "duration": 0.5,
-                "speed": 0.8
+                "distance": 250, // Långsammare, mjukare drag
+                "duration": 0.8,
+                "speed": 0.3 // Lägre speed ger mjukare rörelse
             }
         }
     },
     "retina_detect": true
 });
 
-// ✅ Gradvis öka hastigheten utan att klicka
-let speed = 0.2;
-let maxSpeed = 2.0; 
+// Gradvis öka hastigheten för att skapa en naturlig acceleration
+let speed = 0.4;
+let maxSpeed = 1.5;
 let interval = setInterval(() => {
     if (speed < maxSpeed) {
-        speed += 0.05; 
-        if (window.pJSDom.length > 0) { 
-            window.pJSDom[0].pJS.particles.move.speed = speed; 
+        speed += 0.02;
+        if (window.pJSDom.length > 0) {
+            window.pJSDom[0].pJS.particles.move.speed = speed;
         }
     } else {
         clearInterval(interval);
