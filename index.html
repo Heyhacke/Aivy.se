@@ -1137,10 +1137,10 @@ document.addEventListener("DOMContentLoaded", () => {
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 50, // Minska antalet partiklar
+            "value": 60, // Justerat antal för bättre täckning runt text
             "density": {
                 "enable": true,
-                "value_area": 1200 // Sprider ut dem mer
+                "value_area": 800 
             }
         },
         "color": {
@@ -1154,7 +1154,7 @@ particlesJS("particles-js", {
             }
         },
         "opacity": {
-            "value": 0.2, // Mer transparens
+            "value": 0.4, 
             "random": true
         },
         "size": {
@@ -1163,19 +1163,19 @@ particlesJS("particles-js", {
         },
         "line_linked": {
             "enable": true,
-            "distance": 180,
+            "distance": 150,
             "color": "#ffffff",
-            "opacity": 0.2,
-            "width": 0.5
+            "opacity": 0.3,
+            "width": 0.6
         },
         "move": {
             "enable": true,
-            "speed": 0.5, // Mycket långsammare rörelse
+            "speed": 0.2, // Startar långsamt
             "direction": "none",
-            "random": true,
+            "random": false,
             "straight": false,
-            "out_mode": "bounce", 
-            "bounce": true
+            "out_mode": "out", // Ser till att partiklarna inte försvinner
+            "bounce": false
         }
     },
     "interactivity": {
@@ -1183,17 +1183,17 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true, 
-                "mode": "attract" // " repulse Får partiklarna att fly från musen
+                "mode": "attract" // Drar partiklar mot musen
             },
             "onclick": {
                 "enable": true,
-                "mode": "push" // Alternativt "bubble" om du vill ha en bubblaffekt vid klick
+                "mode": "push"
             },
             "resize": true
         },
         "modes": {
             "grab": {
-                "distance": 140,
+                "distance": 180,
                 "line_linked": {
                     "opacity": 1
                 }
@@ -1205,11 +1205,11 @@ particlesJS("particles-js", {
                 "opacity": 0.8,
                 "speed": 3
             },
-          "attract": {
-    "distance": 150, // Justera avståndet för hur långt de påverkas av musen
-    "duration": 0.4,
-    "speed": 1
-},
+            "attract": {
+                "distance": 180, // Hur långt partiklarna påverkas av musen
+                "duration": 0.6,
+                "speed": 0.5
+            },
             "push": {
                 "particles_nb": 4
             },
@@ -1219,6 +1219,19 @@ particlesJS("particles-js", {
         }
     },
     "retina_detect": true
+});
+
+// Gradvis öka hastigheten automatiskt
+let speed = 0.2;
+let maxSpeed = 2.5; // Högsta hastigheten efter ökning
+let interval = setInterval(() => {
+    if (speed < maxSpeed) {
+        speed += 0.05; // Ökar successivt
+        window.pJSDom[0].pJS.particles.move.speed = speed; // Uppdaterar hastigheten i realtid
+    } else {
+        clearInterval(interval); // Stoppar ökning när max uppnåtts
+    }
+}, 500); // Uppdatering var 500ms (halv sekund)
 });
 </script>
 </body>
