@@ -824,9 +824,11 @@ nav ul li a:hover {
 #particles-js {
     position: absolute;
     width: 100%;
-    height: 100vh;
-#particles-js {
-    z-index: 0 !important;
+    height: 100%;
+    background: transparent; /* Ändra från var(--dark) till transparent */
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ändrad från -1 */
 }
     </style>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -1103,100 +1105,79 @@ nav ul li a:hover {
     });
 </script>
 <script>
-<script>
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 60, 
+            "value": 50, // Minska antalet partiklar
             "density": {
                 "enable": true,
-                "value_area": 1000
+                "value_area": 1200 // Sprider ut dem mer
             }
         },
         "color": {
-            "value": "#8884FF"
+            "value": "#ffffff"
         },
         "shape": {
             "type": "circle",
             "stroke": {
                 "width": 0,
                 "color": "#000000"
-            },
-            "polygon": {
-                "nb_sides": 6
             }
         },
         "opacity": {
-            "value": 0.3,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 1.5,
-                "opacity_min": 0.1,
-                "sync": false
-            }
+            "value": 0.2, // Mer transparens
+            "random": true
         },
         "size": {
-            "value": 4,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 5,
-                "size_min": 0.5,
-                "sync": false
-            }
+            "value": 3,
+            "random": true
         },
         "line_linked": {
             "enable": true,
-            "distance": 150,
-            "color": "#8884FF",
-            "opacity": 0.4,
-            "width": 1
+            "distance": 180,
+            "color": "#ffffff",
+            "opacity": 0.2,
+            "width": 0.5
         },
         "move": {
             "enable": true,
-            "speed": 0.8,
+            "speed": 0.5, // Mycket långsammare rörelse
             "direction": "none",
             "random": true,
             "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": true,
-                "rotateX": 600,
-                "rotateY": 600
-            }
+            "out_mode": "bounce", 
+            "bounce": true
         }
     },
     "interactivity": {
         "detect_on": "canvas",
         "events": {
             "onhover": {
-                "enable": true,
-                "mode": "bubble"
+                "enable": true, 
+                "mode": "repulse" // Får partiklarna att fly från musen
             },
             "onclick": {
                 "enable": true,
-                "mode": "repulse"
+                "mode": "push" // Alternativt "bubble" om du vill ha en bubblaffekt vid klick
             },
             "resize": true
         },
         "modes": {
             "grab": {
-                "distance": 180,
+                "distance": 140,
                 "line_linked": {
-                    "opacity": 0.8
+                    "opacity": 1
                 }
             },
             "bubble": {
-                "distance": 200,
-                "size": 6,
+                "distance": 250,
+                "size": 10,
                 "duration": 2,
-                "opacity": 0.3,
+                "opacity": 0.8,
                 "speed": 3
             },
             "repulse": {
-                "distance": 100,
+                "distance": 100, // Justera för hur starkt partiklarna flyttar sig bort från musen
                 "duration": 0.4
             },
             "push": {
@@ -1209,7 +1190,6 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
 });
-</script>
 </script>
 </body>
 </html>
