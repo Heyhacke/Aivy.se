@@ -822,13 +822,12 @@ nav ul li a:hover {
     width: auto;
 }
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 100%;
-    background: transparent; /* Ändra från var(--dark) till transparent */
-    top: 0;
-    left: 0;
-    z-index: 0; /* Ändrad från -1 */
+    height: 100vh;
+    background: radial-gradient(circle at center, rgba(20, 20, 50, 0.6) 0%, rgba(10, 10, 30, 0.8) 100%);
+    z-index: -1;
+    filter: blur(1px); /* Gör det mer subtilt */
 }
     </style>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
