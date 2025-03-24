@@ -1365,3 +1365,146 @@ body {
 .value-point p {
     text-align: left;
 }
+/* General Styles */
+html {
+    scroll-behavior: smooth; /* Ensure smooth scrolling */
+}
+
+/* Header/CTA */
+.header .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light);
+    background: linear-gradient(45deg, var(--primary), var(--primary-light));
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin for spacing */
+}
+
+@media (max-width: 768px) {
+    .header .cta-button {
+        padding: 10px 20px; /* Make the button smaller */
+        font-size: 0.9rem; /* Smaller font size */
+        margin-top: 10px; /* Space below the menu */
+    }
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px 0; /* Reduce padding for mobile */
+}
+
+.hero-content {
+    margin: 0 auto;
+    padding: 0 20px; /* Add some padding for mobile */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 0; /* Further reduce padding for mobile */
+    }
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between cards */
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    }
+}
+
+/* Case Studies & Testimonials */
+.case-studies-grid,
+.testimonial-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between items */
+}
+
+.case-study-card img,
+.testimonial-slide img {
+    width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+    .case-studies-grid,
+    .testimonial-carousel {
+        grid-template-columns: 1fr; /* Stack items vertically on mobile */
+    }
+}
+
+/* Contact Section */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 20px; /* Space between contact info items */
+}
+
+.value-points {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    gap: 10px; /* Space between value points */
+    flex: 1; /* Allow it to grow */
+    min-width: 280px; /* Minimum width for value points */
+}
+
+.value-point {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 16px 20px;
+    border-radius: 10px;
+    color: var(--light);
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.value-point:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.contact-form {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    flex: 1; /* Adjusted for better balance on desktop */
+    max-width: 600px; /* Prevent form from being too wide */
+    width: 100%; /* Full width */
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Stack items vertically on mobile */
+    }
+
+    .value-points {
+        margin-bottom: 20px; /* Space between value points and form */
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%; /* Full width for inputs */
+        max-width: 100%; /* Prevent inputs from being too wide */
+    }
+
+    .error-message {
+        display: block; /* Ensure error messages are visible */
+        margin-top: 5px; /* Space above error messages */
+        color: var(--error); /* Color for error messages */
+    }
+}
