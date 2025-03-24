@@ -310,25 +310,78 @@ document.addEventListener('touchstart', function(e) {
     }
 });
 
-// Lägg till denna funktion bland dina andra JavaScript-funktioner
+// Smooth Scroll för mobil
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            // Lägg till offset för header
+            const headerOffset = 60;
+            const elementPosition = target.offsetTop;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Stäng mobilmenyn om öppen
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        }
+    });
+});
+
+// Adjust particles for mobile
+function updateParticlesConfig() {
+    if (window.innerWidth <= 768) {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 30 // Minska antal partiklar på mobil
+                },
+                size: {
+                    value: 2
+                }
+            }
+        });
+    }
+}
+
+window.addEventListener('resize', updateParticlesConfig);
+document.addEventListener('DOMContentLoaded', updateParticlesConfig);
+
+// Förbättrad scroll-funktion för CTA
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scroll för alla interna länkar
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    const ctaButtons = document.querySelectorAll('.cta-button[href^="#"]');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                // Beräkna offset för header
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                // Smooth scroll med offset
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
                 
-                // Om det är en mobilmeny, stäng den efter klick
-                const navMenu = document.querySelector('.nav-menu');
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    const menuToggle = document.querySelector('.menu-toggle');
-                    menuToggle.setAttribute('aria-expanded', 'false');
+                // Om det är ett formulär, fokusera på första input
+                if (targetId === '#contact') {
+                    setTimeout(() => {
+                        const firstInput = targetSection.querySelector('input');
+                        if (firstInput) firstInput.focus();
+                    }, 1000);
                 }
             }
         });

@@ -124,21 +124,51 @@ nav ul li a:hover {
 
 /* CTA Button */
 .header .cta-button {
-    padding: 10px 20px;
-    font-size: 15px;
-    background-color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--light);
-    border-radius: 6px;
-    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary), var(--primary-light));
+    border-radius: 8px;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s;
-    margin-left: auto;
-    animation: pulse 4s infinite;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(110, 87, 224, 0.3);
 }
 
 .header .cta-button:hover {
-    background-color: var(--primary-light);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(110, 87, 224, 0.5);
+}
+
+.header .cta-button:active {
+    transform: translateY(0);
+}
+
+/* Pulseffekt för CTA */
+.header .cta-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.header .cta-button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
 /* Hero Section */
@@ -687,12 +717,29 @@ nav ul li a:hover {
 /* Responsive Design for Contact Form */
 @media (max-width: 768px) {
     .contact-form {
-        padding: 1.5rem;
+        padding: 20px;
     }
     
     .back-to-top {
         bottom: 1rem;
         right: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    input,
+    textarea,
+    select {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 15px;
     }
 }
 
@@ -1093,10 +1140,11 @@ footer {
     }
 
     .cta-button {
-        width: 100%;
+        width: auto;
         max-width: 300px;
-        margin: 0 auto;
-        padding: 15px 25px;
+        padding: 14px 28px;
+        font-size: 1rem;
+        margin: 10px auto;
     }
 }
 
@@ -1119,4 +1167,122 @@ footer {
 body {
     overflow-x: hidden;
     width: 100%;
+}
+
+/* Mobile Spacing Fixes */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0; /* Minska padding på sektioner */
+    }
+
+    .hero-content {
+        padding: 20px;
+        margin-top: 70px; /* Kompensera för header */
+    }
+
+    /* Förbättra spacing mellan sektioner */
+    section {
+        margin-bottom: 40px;
+    }
+
+    /* Justera card padding */
+    .service-card,
+    .case-study-card,
+    .testimonial-content {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 12px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .subheadline {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile Buttons and Interactive Elements */
+@media (max-width: 768px) {
+    .cta-button {
+        width: auto;
+        max-width: 300px;
+        padding: 14px 28px;
+        font-size: 1rem;
+        margin: 10px auto;
+    }
+
+    /* Förbättra touch targets */
+    nav a,
+    button,
+    .service-card,
+    .faq-question {
+        min-height: 44px;
+        padding: 12px 15px;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .header {
+        height: 60px; /* Mindre header på mobil */
+    }
+
+    .nav-menu.active {
+        top: 60px; /* Matcha header height */
+        padding: 15px;
+        background: rgba(15, 15, 27, 0.98);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        padding: 12px;
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Mobile Grid Layouts */
+@media (max-width: 768px) {
+    .services-grid,
+    .case-studies-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .testimonial-carousel {
+        padding: 0 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
 }
