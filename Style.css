@@ -61,6 +61,7 @@ body {
 
 .header .logo {
     margin-right: auto;
+    transition: transform 0.3s ease;
 }
 
 .header .logo img {
@@ -107,8 +108,8 @@ nav ul li a:hover {
 }
 
 .header .cta-button {
-    margin-left: 20px;
-    padding: 10px 20px;
+    margin-left: auto;
+    padding: 8px 15px;
     font-size: 14px;
     background: linear-gradient(45deg, var(--primary), var(--primary-light));
     border-radius: 8px;
@@ -564,16 +565,15 @@ nav ul li a:hover {
 }
 
 .contact-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dela upp i två kolumner */
-    gap: 40px; /* Avstånd mellan kolumner */
-    align-items: start; /* Justera till toppen */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
 }
 
 .value-points {
     display: flex;
-    flex-direction: column;
-    gap: 20px; /* Avstånd mellan punkterna */
+    gap: 20px;
 }
 
 .value-point {
@@ -583,12 +583,13 @@ nav ul li a:hover {
     padding: 15px;
     border-radius: 8px;
     color: var(--light);
+    flex: 1;
 }
 
 .value-point i {
-    margin-right: 10px; /* Avstånd mellan ikon och text */
+    margin-right: 10px;
     color: var(--primary);
-    font-size: 1.5rem; /* Större ikon */
+    font-size: 1.5rem;
 }
 
 .contact-form {
@@ -647,7 +648,7 @@ nav ul li a:hover {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: #007bff;
+    background-color: var(--primary);
     color: white;
     width: 45px;
     height: 45px;

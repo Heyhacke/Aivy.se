@@ -227,6 +227,8 @@ contactForm.addEventListener('submit', (e) => {
         const input = group.querySelector('input, textarea');
         const errorMessage = group.querySelector('.error-message');
         
+        if (!input) return; // Skip if no input found in group
+
         if (!input.validity.valid) {
             isValid = false;
             validateField(input, errorMessage);
@@ -234,18 +236,40 @@ contactForm.addEventListener('submit', (e) => {
     });
 
     if (isValid) {
-        // Here you would typically send the form data to your server
-        // For now, we'll just show a success message
         const submitButton = contactForm.querySelector('.submit-button');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Skickat!';
+        submitButton.textContent = 'Skickar...'; // Sending...
         submitButton.disabled = true;
-        
-        setTimeout(() => {
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-            contactForm.reset();
-        }, 3000);
+        submitButton.setAttribute('aria-busy', 'true'); // Indicate busy state
+
+        // Actual form submission
+        fetch('/submit-endpoint', {
+            method: 'POST',
+            body: new FormData(contactForm),
+        })
+        .then(response => {
+            if (response.ok) {
+                // Clear error messages
+                formGroups.forEach(group => {
+                    const errorMessage = group.querySelector('.error-message');
+                    errorMessage.textContent = ''; // Clear any visible error messages
+                });
+
+                submitButton.textContent = originalText;
+                contactForm.reset(); // Reset the form
+            } else {
+                // Handle server error
+                submitButton.textContent = 'Något gick fel'; // Something went wrong
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            submitButton.textContent = 'Något gick fel'; // Something went wrong
+        })
+        .finally(() => {
+            submitButton.disabled = false; // Re-enable the button
+            submitButton.setAttribute('aria-busy', 'false'); // Reset busy state
+        });
     }
 });
 
