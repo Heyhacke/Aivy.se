@@ -2,7 +2,7 @@ const CACHE_NAME = 'aivy-cache-v1';
 const urlsToCache = [
     '/',
     '/index.html',
-    '/styles.css',
+    '/style.css',
     '/scripts.js',
     '/aivy235.png',
     '/blog1.jpg',

@@ -47,82 +47,93 @@ function typeEffect() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(typeEffect, 1000);
-});
-
-// Particles.js Konfiguration
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 80,
-            "density": {
-                "enable": true,
-                "value_area": 1000
-            }
-        },
-        "color": {
-            "value": "#ffffff"
-        },
-        "shape": {
-            "type": "circle",
-            "stroke": {
-                "width": 0,
-                "color": "#000000"
-            }
-        },
-        "opacity": {
-            "value": 0.4,
-            "random": true
-        },
-        "size": {
-            "value": 3,
-            "random": true
-        },
-        "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#ffffff",
-            "opacity": 0.3,
-            "width": 0.6
-        },
-        "move": {
-            "enable": true,
-            "speed": 0.4,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "bounce",
-            "bounce": true
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "attract"
-            },
-            "onclick": {
-                "enable": false
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 200,
+// Particles.js Fallback Check and Configuration
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.4,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
                 "line_linked": {
-                    "opacity": 1
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.3,
+                    "width": 0.6
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.4,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "bounce",
+                    "bounce": true
                 }
             },
-            "attract": {
-                "distance": 250,
-                "duration": 0.8,
-                "speed": 0.3
-            }
-        }
-    },
-    "retina_detect": true
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "attract"
+                    },
+                    "onclick": {
+                        "enable": false
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "attract": {
+                        "distance": 250,
+                        "duration": 0.8,
+                        "speed": 0.3
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    } else {
+        console.log('Particles.js failed to load, retrying in 2 seconds...');
+        setTimeout(initParticles, 2000); // Retry after 2 seconds
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize particles with retry mechanism
+    initParticles();
+    
+    // Existing initialization code
+    setTimeout(typeEffect, 1000);
 });
 
 // Testimonial Carousel
