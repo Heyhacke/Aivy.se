@@ -354,11 +354,12 @@ function updateParticlesConfig() {
 window.addEventListener('resize', updateParticlesConfig);
 document.addEventListener('DOMContentLoaded', updateParticlesConfig);
 
-// Förbättrad scroll-funktion för CTA
+// Uppdatera scroll-hanteringen för alla CTA-knappar
 document.addEventListener('DOMContentLoaded', function() {
-    const ctaButtons = document.querySelectorAll('.cta-button[href^="#"]');
+    // Välj alla CTA-knappar (både i header och hero)
+    const allCTAButtons = document.querySelectorAll('.cta-button');
     
-    ctaButtons.forEach(button => {
+    allCTAButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -366,17 +367,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Beräkna offset för header
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight;
                 
-                // Smooth scroll med offset
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
                 
-                // Om det är ett formulär, fokusera på första input
+                // Fokusera på första input-fältet i kontaktformuläret
                 if (targetId === '#contact') {
                     setTimeout(() => {
                         const firstInput = targetSection.querySelector('input');
@@ -385,5 +384,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    });
+});
+
+// Lägg till floating action button för snabb-CTA
+document.addEventListener('DOMContentLoaded', function() {
+    const fab = document.createElement('button');
+    fab.className = 'floating-cta';
+    fab.innerHTML = '<i class="fas fa-calendar-alt"></i>';
+    
+    // Visa efter 30% scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight * 0.3) {
+            fab.classList.add('visible');
+        } else {
+            fab.classList.remove('visible');
+        }
     });
 });
