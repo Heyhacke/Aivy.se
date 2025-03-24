@@ -111,8 +111,8 @@ nav ul li a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 32px;
-    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--light);
     background: linear-gradient(45deg, var(--primary), var(--primary-light));
@@ -191,17 +191,17 @@ nav ul li a:hover {
 }
 
 .hero-content {
-    max-width: 800px;
-    z-index: 2;
-    color: var(--light);
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
     margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
 }
 
 .subheadline {
@@ -211,6 +211,8 @@ nav ul li a:hover {
 }
 
 .hero .cta-button {
+    margin-top: 20px;
+    max-width: 90%;
     padding: 15px 25px;
     font-size: 1.2rem;
     background-color: var(--primary);
@@ -220,7 +222,6 @@ nav ul li a:hover {
     font-weight: bold;
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     width: 100%;
-    max-width: 300px;
     margin: 0 auto;
 }
 
@@ -423,11 +424,13 @@ nav ul li a:hover {
 /* Testimonials */
 .testimonials {
     padding: 100px 0;
+    position: relative;
 }
 
 .testimonial-carousel {
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .testimonial-slides {
@@ -487,7 +490,7 @@ nav ul li a:hover {
 .testimonial-dots {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .testimonial-dot {
@@ -927,6 +930,7 @@ footer {
     top: 0;
     left: 0;
     z-index: 0;
+    opacity: 0.15;
 }
 
 /* Pulse Animation */
@@ -1387,8 +1391,8 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 32px;
-    font-size: 1.1rem;
+    padding: 10px 20px; /* Minskat padding */
+    font-size: 0.95rem; /* Minskat font-size */
     font-weight: 600;
     color: var(--light);
     background: linear-gradient(45deg, var(--primary), var(--primary-light));
