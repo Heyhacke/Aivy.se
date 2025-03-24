@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <meta name="description" content="Aivy - AI Automation Agency helping businesses leverage artificial intelligence for growth and efficiency">
+    <title>Aivy | AI Automation Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6E57E0;
+            --primary-light: #8F7AE5;
+            --secondary: #1A1A2E;
+            --dark: #0F0F1B;
+            --darker: #070711;
+            --light: #F5F5F7;
+            --gray: #9A9A9A;
+            --success: #4CAF50;
+            --error: #F44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+/* Justerad Header - Lite större men balanserad */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(15, 15, 27, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Trycker resten av menyn och CTA till höger */
+}
+
+.logo img {
+    height: 50px; /* Anpassa efter behov */
+    width: auto;
+}
+
+/* Navigation */
+nav {
+    flex-grow: 1; /* Låter menyn växa så att allt trycks ut rätt */
+    display: flex;
+    justify-content: center; /* Håller menyn centrerad */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+/* CTA-knappen i Headern */
+.header .cta-button {
+    padding: 10px 20px;
+    font-size: 15px;
+    background-color: var(--primary);
+    color: var(--light);
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-left: auto;
+    animation: pulse 4s infinite; /* <-- Ny rad */
+}
+
+.header .cta-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+/* Hero-sektion */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-color: transparent; /* Ändra från var(--dark) */
+}
+
+/* Typografin i hero */
+.hero-subtext {
+    font-size: 1.5rem;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+/* Dynamisk text */
+.dynamic-text {
+    font-weight: bold;
+    color: var(--primary);
+    border-right: 3px solid var(--primary);
+    padding-right: 5px;
+    animation: blinkCursor 0.8s steps(2) infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--primary); }
+}
+
+/* Huvudrubrik */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-color: var(--dark); /* Lägg till om du vill ha en mörk bakgrund */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+    color: var(--light); /* För att se till att texten är ljus */
+}
+
+/* Huvudrubrik */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Subheadline */
+.subheadline {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+/* CTA-knapp */
+.hero .cta-button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero .cta-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px); /* Lyft-effekt */
+    box-shadow: 0 5px 15px rgba(110, 87, 224, 0.4); /* Ljusare skugga */
+}
+        /* Trust Elements */
+        .trust-elements {
+            padding: 40px 0;
+            background-color: var(--secondary);
+        }
+
+        .trust-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .trust-logo {
+            height: 30px;
+            filter: grayscale(100%) brightness(200%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .trust-logo:hover {
+            filter: grayscale(0%) brightness(100%);
+            opacity: 1;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Case Studies */
+        .case-studies {
+            padding: 100px 0;
+            background-color: var(--darker);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .case-study-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-study-content {
+            padding: 20px;
+        }
+
+        .case-study-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .case-study-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .case-study-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-content {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1rem;
+        }
+
+        .testimonial-author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--darker);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: var(--secondary);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #21213a;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            background-color: #191932;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 20px 0;
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-question {
+            background-color: #21213a;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .contact-icon i {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--dark);
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(110, 87, 224, 0.2);
+        }
+
+        .form-control.invalid {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .social-link i {
+            color: var(--light);
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease;
+            }
+
+            nav.active ul {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero-bg {
+                width: 100%;
+                clip-path: none;
+                opacity: 0.2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        .logo-container {
+    position: absolute;  
+    top: 20px;  
+    left: 20px;  
+    width: 150px; 
+}
+
+.logo-container img {
+    width: 100%;
+    height: auto;
+}
+.typing-container {
+  font-size: 1.5rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.static-text {
+  font-weight: 500;
+  color: var(--light);
+}
+
+.dynamic-text {
+  font-weight: bold;
+  color: var(--primary);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary);
+  animation: blinkCursor 0.8s steps(2) infinite;
+}
+.dynamic-text::before {
+    content: " ";
+}
+
+@keyframes blinkCursor {
+  from { border-right-color: var(--primary); }
+  to { border-right-color: transparent; }
+}
+.static-text {
+    display: inline-block;
+}
+
+.dynamic-text {
+    display: inline-block;
+    white-space: nowrap;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Tvinga loggan till vänster */
+.logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+/* Justera loggans storlek */
+.logo img {
+    height: 50px; /* Anpassa efter behov */
+    width: auto;
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Ändra från var(--dark) till transparent */
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ändrad från -1 */
+}
+.typing-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    height: 40px; /* Säkerställ att den alltid har samma höjd */
+    white-space: nowrap; /* Håller allt på en rad */
+}
+
+.static-text {
+    font-weight: 500;
+    color: var(--light);
+    white-space: nowrap; /* Förhindra radbrytning */
+    margin-right: 5px;
+    flex-shrink: 0; /* Förhindrar att texten trycks ihop */
+}
+
+.dynamic-text {
+    font-weight: bold;
+    color: var(--primary);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary);
+    animation: blinkCursor 0.8s steps(2) infinite;
+    display: inline-block; /* Säkerställer att texten håller sig på en linje */
+    min-height: 40px; /* Håller texten på samma höjd som .static-text */
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(143, 97, 255, 0.6);
+  }
+  70% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(143, 97, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(143, 97, 255, 0);
+  }
+}
+    </style>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+<!-- Particles.js container -->
+    <!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <a href="index.html" class="logo">
+      <img src="aivy235.png" alt="Aivy Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="cta-button">Se vad ni kan slippa göra själva</a>
+  </div>
+</header>
+    <!-- Hero Section -->
+<section class="hero">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-tagline">AI som frigör tid – inte bara skapar fler saker att hantera.</p>
+      <h1>Det mesta ni gör manuellt – automatiserar vi åt er</h1>
+      <p class="subheadline">
+        Vi visar exakt vad. Inget fluff. Inom 30 dagar.
+      </p>
+      <a href="#contact" class="cta-button">Boka en AI-genomlysning</a>
+    </div>
+  </div>
+</section>
+    <!-- Trust Elements -->
+    <section class="trust-elements">
+        <div class="container">
+            <div class="trust-container">
+                <p>Förtroende från branschledare</p>
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+   <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skräddarsydda AI-lösningar för er bransch</h2>
+                <p>AI är här för att stanna – vi hjälper er använda det rätt</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Process Automation</h3>
+                    <p>Streamline your workflows and reduce manual tasks with our intelligent automation solutions that learn and adapt to your business processes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning Integration</h3>
+                    <p>Leverage the power of machine learning to gain valuable insights from your data and make more informed business decisions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Conversational AI</h3>
+                    <p>Enhance customer experience with intelligent chatbots and virtual assistants that understand natural language and provide personalized support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Anticipate market trends and customer behavior with our advanced predictive models that help you stay ahead of the competition.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom AI Solutions</h3>
+                    <p>We develop tailored AI solutions that address your unique business challenges and integrate seamlessly with your existing systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>AI Strategy Consulting</h3>
+                    <p>Our experts work with you to develop a comprehensive AI strategy that aligns with your business goals and maximizes ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Case Studies</h2>
+                <p>Real results from our AI automation solutions</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>E-commerce Personalization</h3>
+                        <p>How we helped a leading retailer increase conversions with AI-powered product recommendations.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">+43%</div>
+                                <div class="stat-label">Conversion Rate</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+27%</div>
+                                <div class="stat-label">Average Order Value</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Customer Service Automation</h3>
+                        <p>How our AI chatbot helped a SaaS company reduce support costs while improving customer satisfaction.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-35%</div>
+                                <div class="stat-label">Support Costs</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+18%</div>
+                                <div class="stat-label">Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Predictive Maintenance</h3>
+                        <p>How our machine learning models helped a manufacturing company predict equipment failures before they happened.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-78%</div>
+                                <div class="stat-label">Downtime</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">$1.2M</div>
+                                <div class="stat-label">Annual Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses we've helped transform with AI</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slides" id="testimonialSlides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Aivy transformed our customer service approach. Their AI chatbot now handles 70% of our support inquiries, allowing our team to focus on more complex issues. The implementation was smooth, and the results exceeded our expectations.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CTO, TechSolutions Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The predictive analytics solution developed by Aivy has been game-changing for our business. We can now anticipate market trends with remarkable accuracy, giving us a significant competitive advantage.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>CEO, Data Insights Co.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Working with Aivy was a pleasure from start to finish. Their team took the time to understand our unique challenges and developed a custom AI solution that perfectly addressed our needs. The ROI has been exceptional.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Emma Rodriguez</h4>
+                                    <p>COO, GrowthFast Ltd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common questions about our AI automation services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What industries do you work
+<script>
+   const dynamicText = document.querySelector(".dynamic-text");
+const textArray = [
+    " automatisera utan att det blir svårt.",
+    " jobba smartare, utan att ändra allt.",
+    " spara tid utan att förlora kontrollen.",
+    " automatisera det monotona, så ni kan fokusera.",
+    " effektivisera processer – utan huvudvärk.",
+    " få ett försprång."
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentText = textArray[textIndex];
+
+    if (isDeleting) {
+        dynamicText.textContent = currentText.substring(0, charIndex--);
+    } else {
+        dynamicText.textContent = currentText.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000); // Paus innan radering
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(typeEffect, 500); // Paus innan nästa text börjar skrivas
+    } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeEffect, 1000);
+});
+</script>
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": {
+            "value": 80,
+            "density": {
+                "enable": true,
+                "value_area": 1000
+            }
+        },
+        "color": {
+            "value": "#ffffff"
+        },
+        "shape": {
+            "type": "circle",
+            "stroke": {
+                "width": 0,
+                "color": "#000000"
+            }
+        },
+        "opacity": {
+            "value": 0.4,
+            "random": true
+        },
+        "size": {
+            "value": 3,
+            "random": true
+        },
+        "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.3,
+            "width": 0.6
+        },
+        "move": {
+            "enable": true,
+            "speed": 0.4, // Lite snabbare initialt
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "bounce",
+            "bounce": true
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": {
+                "enable": true,
+                "mode": "attract" // Gör att partiklar "söker sig" mot musen
+            },
+            "onclick": {
+                "enable": false
+            },
+            "resize": true
+        },
+        "modes": {
+            "grab": {
+                "distance": 200, // Justerar hur nära musen de börjar attraheras
+                "line_linked": {
+                    "opacity": 1
+                }
+            },
+            "attract": {
+                "distance": 250, // Långsammare, mjukare drag
+                "duration": 0.8,
+                "speed": 0.3 // Lägre speed ger mjukare rörelse
+            }
+        }
+    },
+    "retina_detect": true
+});
+
+// Gradvis öka hastigheten för att skapa en naturlig acceleration
+let speed = 0.4;
+let maxSpeed = 1.5;
+let interval = setInterval(() => {
+    if (speed < maxSpeed) {
+        speed += 0.02;
+        if (window.pJSDom.length > 0) {
+            window.pJSDom[0].pJS.particles.move.speed = speed;
+        }
+    } else {
+        clearInterval(interval);
+    }
+}, 500);
+</script>
+=======
+    <meta name="description" content="Aivy - AI Automation Agency helping businesses leverage artificial intelligence for growth and efficiency. We automate manual processes and implement AI solutions for better business outcomes.">
+    <meta name="keywords" content="AI automation, business automation, machine learning, AI consulting, process automation">
+    <meta name="author" content="Aivy">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Aivy | AI Automation Agency">
+    <meta property="og:description" content="Transform your business with AI automation solutions. We help companies streamline processes and leverage artificial intelligence for growth.">
+    <meta property="og:image" content="aivy235.png">
+    <meta property="og:url" content="https://aivy.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aivy | AI Automation Agency">
+    <meta name="twitter:description" content="Transform your business with AI automation solutions. We help companies streamline processes and leverage artificial intelligence for growth.">
+    <meta name="twitter:image" content="aivy235.png">
+    
+    <title>Aivy | AI Automation Agency</title>
+    <link rel="icon" type="image/png" href="aivy235.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Aivy",
+        "url": "https://aivy.com",
+        "logo": "aivy235.png",
+        "description": "AI Automation Agency helping businesses leverage artificial intelligence for growth and efficiency",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1 (234) 567-890",
+            "contactType": "customer service",
+            "email": "info@aivy.com"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header-content">
+            <a href="/" class="logo" aria-label="Aivy homepage">
+                <img src="aivy235.png" alt="Aivy Logo" width="150" height="50">
+            </a>
+            
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul id="main-menu" class="nav-menu">
+                    <li><a href="#services" aria-current="page">Services</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="cta-button" role="button">
+                Se vad ni kan slippa göra själva
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tagline">AI som frigör tid – inte bara skapar fler saker att hantera.</p>
+                <h1>Det mesta ni gör manuellt – automatiserar vi åt er</h1>
+                <p class="subheadline">
+                    Vi visar exakt vad. Inget fluff. Inom 30 dagar.
+                </p>
+                <a href="#contact" class="cta-button">Boka en AI-genomlysning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Elements -->
+    <section class="trust-elements">
+        <div class="container">
+            <div class="trust-container">
+                <p>Förtroende från branschledare</p>
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skräddarsydda AI-lösningar för er bransch</h2>
+                <p>AI är här för att stanna – vi hjälper er använda det rätt</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Process Automation</h3>
+                    <p>Streamline your workflows and reduce manual tasks with our intelligent automation solutions that learn and adapt to your business processes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning Integration</h3>
+                    <p>Leverage the power of machine learning to gain valuable insights from your data and make more informed business decisions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Conversational AI</h3>
+                    <p>Enhance customer experience with intelligent chatbots and virtual assistants that understand natural language and provide personalized support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Anticipate market trends and customer behavior with our advanced predictive models that help you stay ahead of the competition.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom AI Solutions</h3>
+                    <p>We develop tailored AI solutions that address your unique business challenges and integrate seamlessly with your existing systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>AI Strategy Consulting</h3>
+                    <p>Our experts work with you to develop a comprehensive AI strategy that aligns with your business goals and maximizes ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Case Studies</h2>
+                <p>Real results from our AI automation solutions</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>E-commerce Personalization</h3>
+                        <p>How we helped a leading retailer increase conversions with AI-powered product recommendations.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">+43%</div>
+                                <div class="stat-label">Conversion Rate</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+27%</div>
+                                <div class="stat-label">Average Order Value</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Customer Service Automation</h3>
+                        <p>How our AI chatbot helped a SaaS company reduce support costs while improving customer satisfaction.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-35%</div>
+                                <div class="stat-label">Support Costs</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+18%</div>
+                                <div class="stat-label">Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Predictive Maintenance</h3>
+                        <p>How our machine learning models helped a manufacturing company predict equipment failures before they happened.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-78%</div>
+                                <div class="stat-label">Downtime</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">$1.2M</div>
+                                <div class="stat-label">Annual Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses we've helped transform with AI</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slides" id="testimonialSlides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Aivy transformed our customer service approach. Their AI chatbot now handles 70% of our support inquiries, allowing our team to focus on more complex issues. The implementation was smooth, and the results exceeded our expectations.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CTO, TechSolutions Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The predictive analytics solution developed by Aivy has been game-changing for our business. We can now anticipate market trends with remarkable accuracy, giving us a significant competitive advantage.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>CEO, Data Insights Co.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Working with Aivy was a pleasure from start to finish. Their team took the time to understand our unique challenges and developed a custom AI solution that perfectly addressed our needs. The ROI has been exceptional.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Emma Rodriguez</h4>
+                                    <p>COO, GrowthFast Ltd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI-insikter & Nyheter</h2>
+                <p>Läs om de senaste trenderna inom AI och automation</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog1.jpg" alt="AI i vardagen" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">15 Mars 2024</span>
+                            <span class="category">AI-trends</span>
+                        </div>
+                        <h3>Hur AI förändrar arbetsplatsen 2024</h3>
+                        <p>En djupgående analys av hur AI-teknologi omformar arbetsplatser och skapar nya möjligheter för företag.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog2.jpg" alt="Automatisering" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">10 Mars 2024</span>
+                            <span class="category">Automatisering</span>
+                        </div>
+                        <h3>5 sätt att automatisera kundservice</h3>
+                        <p>Praktiska tips för att implementera AI-driven kundservice som förbättrar både effektivitet och kundnöjdhet.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog3.jpg" alt="Framtidens AI" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">5 Mars 2024</span>
+                            <span class="category">Framtiden</span>
+                        </div>
+                        <h3>Framtidens AI: Vad kommer härnäst?</h3>
+                        <p>En blick in i framtiden och hur kommande AI-innovationer kommer att påverka företag och samhälle.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="blog-cta">
+                <a href="#" class="cta-button">Visa alla artiklar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vanliga frågor</h2>
+                <p>Svar på vanliga frågor om våra AI-automatiseringslösningar</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vilka branscher arbetar ni med?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi arbetar med ett brett spektrum av branscher inklusive e-handel, vård, finans, tillverkning och mer. Våra lösningar skräddarsys för att möta varje branschs specifika behov.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur lång tid tar det att implementera en AI-lösning?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Implementeringstiden varierar beroende på projektets omfattning och komplexitet. En typisk implementation kan ta mellan 2-6 månader, men vi kan också leverera mindre lösningar på några veckor.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur säker är AI-automatisering?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi prioriterar säkerhet i alla våra lösningar. Våra system är byggda med den senaste säkerhetstekniken och följer GDPR och andra relevanta dataskyddsregler. All känslig data krypteras och hanteras enligt strikta säkerhetsprotokoll.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vad händer med våra anställda när processer automatiseras?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vårt mål är att frigöra tid för ert team, inte att ersätta dem. Automatisering av rutinuppgifter låter er personal fokusera på mer värdeskapande arbete. Vi erbjuder också omställningsstöd och utbildning för att hjälpa ert team anpassa sig till de nya arbetsprocesserna.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur mäter ni framgången av en AI-implementation?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi definierar tydliga KPI:er innan implementationen börjar och följer upp dem kontinuerligt. Vi mäter bland annat tidsbesparingar, kostnadsreducering, felreducering och medarbetarnas tillfredsställelse. Regelbundna utvärderingar säkerställer att lösningen levererar det förväntade värdet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakta oss</h2>
+                <p>Boka en AI-genomlysning av er verksamhet</p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Namn</label>
+                        <input type="text" id="name" name="name" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" name="email" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Företag</label>
+                        <input type="text" id="company" name="company" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Meddelande</label>
+                        <textarea id="message" name="message" rows="4" required aria-required="true" aria-invalid="false"></textarea>
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="submit-button">Skicka</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Tillbaka till toppen">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span>Aivy</span>
+                    </div>
+                    <p>We help businesses leverage artificial intelligence for growth and efficiency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="mailto:info@aivy.com">info@aivy.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Aivy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="scripts.js"></script> <!-- Länka till din JavaScript-fil -->
+>>>>>>> c390833 (Bytt namn från AI.html till index.html för GitHub Pages)
+</body>
+</html>
