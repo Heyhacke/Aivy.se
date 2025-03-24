@@ -3,69 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aivy - AI-Powered Automation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-b from-black via-gray-900 to-black text-white flex flex-col items-center justify-center min-h-screen">
+    <meta name="description" content="Aivy - AI Automation Agency helping businesses leverage artificial intelligence for growth and efficiency. We automate manual processes and implement AI solutions for better business outcomes.">
+    <meta name="keywords" content="AI automation, business automation, machine learning, AI consulting, process automation">
+    <meta name="author" content="Aivy">
     
-    <!-- Navbar -->
-    <header class="w-full max-w-6xl flex justify-between items-center py-6 px-8">
-        <div class="flex items-center space-x-3">
-            <span class="h-8 w-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg"></span>
-            <h1 class="text-2xl font-bold">Aivy</h1>
-        </div>
-        <nav class="hidden md:flex space-x-6">
-            <a href="#" class="text-gray-300 hover:text-white">Services</a>
-            <a href="#" class="text-gray-300 hover:text-white">About</a>
-            <a href="#" class="text-gray-300 hover:text-white">Work</a>
-        </nav>
-        <div class="flex space-x-4">
-            <button class="hidden md:block bg-gray-800 px-5 py-2 rounded-lg">Sign in</button>
-            <button class="bg-purple-500 px-5 py-2 rounded-lg hover:bg-pink-500 transition-all">Get Started</button>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Aivy | AI Automation Agency">
+    <meta property="og:description" content="Transform your business with AI automation solutions. We help companies streamline processes and leverage artificial intelligence for growth.">
+    <meta property="og:image" content="aivy235.png">
+    <meta property="og:url" content="https://aivy.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aivy | AI Automation Agency">
+    <meta name="twitter:description" content="Transform your business with AI automation solutions. We help companies streamline processes and leverage artificial intelligence for growth.">
+    <meta name="twitter:image" content="aivy235.png">
+    
+    <title>Aivy | AI Automation Agency</title>
+    <link rel="icon" type="image/png" href="aivy235.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Aivy",
+        "url": "https://aivy.com",
+        "logo": "aivy235.png",
+        "description": "AI Automation Agency helping businesses leverage artificial intelligence for growth and efficiency",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1 (234) 567-890",
+            "contactType": "customer service",
+            "email": "info@aivy.com"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header-content">
+            <a href="/" class="logo" aria-label="Aivy homepage">
+                <img src="aivy235.png" alt="Aivy Logo" width="150" height="50">
+            </a>
+            
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul id="main-menu" class="nav-menu">
+                    <li><a href="#services" aria-current="page">Services</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="cta-button" role="button">
+                Se vad ni kan slippa göra själva
+            </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <div class="text-center mt-16 px-6">
-        <h2 class="text-5xl font-extrabold">Automate Your Business</h2>
-        <h3 class="text-4xl font-bold text-purple-400 mt-2">With AI Solutions</h3>
-        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Transform your workflow with cutting-edge automation. We build custom AI solutions that save time and scale your business.</p>
-        
-        <div class="mt-6 flex justify-center space-x-4">
-            <button class="bg-purple-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-pink-500 transition-all">Get Started</button>
-            <button class="bg-gray-700 px-6 py-3 rounded-lg text-white font-semibold hover:bg-gray-600 transition-all">Learn More</button>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="max-w-6xl mx-auto mt-20 px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold">A new era for product <br> builders and developers.</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold">Product teams</h3>
-                <p class="text-gray-400 mt-2">Empower non-technical team members to code and build real prototypes.</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold">Founders & Indie Hackers</h3>
-                <p class="text-gray-400 mt-2">Launch a full product in less than a day with AI automation.</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold">Product designers</h3>
-                <p class="text-gray-400 mt-2">Bring design ideas to life without tedious prototyping.</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold">Software Engineers</h3>
-                <p class="text-gray-400 mt-2">Ship entire frontends in one prompt and let AI refine your UI.</p>
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tagline">AI som frigör tid – inte bara skapar fler saker att hantera.</p>
+                <h1>Det mesta ni gör manuellt – automatiserar vi åt er</h1>
+                <p class="subheadline">
+                    Vi visar exakt vad. Inget fluff. Inom 30 dagar.
+                </p>
+                <a href="#contact" class="cta-button">Boka en AI-genomlysning</a>
             </div>
         </div>
-    </div>
-    
+    </section>
+
+    <!-- Trust Elements -->
+    <section class="trust-elements">
+        <div class="container">
+            <div class="trust-container">
+                <p>Förtroende från branschledare</p>
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+                <img src="/api/placeholder/100/40" alt="Company Logo" class="trust-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skräddarsydda AI-lösningar för er bransch</h2>
+                <p>AI är här för att stanna – vi hjälper er använda det rätt</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Process Automation</h3>
+                    <p>Streamline your workflows and reduce manual tasks with our intelligent automation solutions that learn and adapt to your business processes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning Integration</h3>
+                    <p>Leverage the power of machine learning to gain valuable insights from your data and make more informed business decisions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Conversational AI</h3>
+                    <p>Enhance customer experience with intelligent chatbots and virtual assistants that understand natural language and provide personalized support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Anticipate market trends and customer behavior with our advanced predictive models that help you stay ahead of the competition.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom AI Solutions</h3>
+                    <p>We develop tailored AI solutions that address your unique business challenges and integrate seamlessly with your existing systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>AI Strategy Consulting</h3>
+                    <p>Our experts work with you to develop a comprehensive AI strategy that aligns with your business goals and maximizes ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Case Studies</h2>
+                <p>Real results from our AI automation solutions</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>E-commerce Personalization</h3>
+                        <p>How we helped a leading retailer increase conversions with AI-powered product recommendations.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">+43%</div>
+                                <div class="stat-label">Conversion Rate</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+27%</div>
+                                <div class="stat-label">Average Order Value</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Customer Service Automation</h3>
+                        <p>How our AI chatbot helped a SaaS company reduce support costs while improving customer satisfaction.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-35%</div>
+                                <div class="stat-label">Support Costs</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+18%</div>
+                                <div class="stat-label">Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <img src="/api/placeholder/400/200" alt="Case Study" class="case-study-image">
+                    <div class="case-study-content">
+                        <h3>Predictive Maintenance</h3>
+                        <p>How our machine learning models helped a manufacturing company predict equipment failures before they happened.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">-78%</div>
+                                <div class="stat-label">Downtime</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">$1.2M</div>
+                                <div class="stat-label">Annual Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses we've helped transform with AI</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slides" id="testimonialSlides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Aivy transformed our customer service approach. Their AI chatbot now handles 70% of our support inquiries, allowing our team to focus on more complex issues. The implementation was smooth, and the results exceeded our expectations.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CTO, TechSolutions Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The predictive analytics solution developed by Aivy has been game-changing for our business. We can now anticipate market trends with remarkable accuracy, giving us a significant competitive advantage.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>CEO, Data Insights Co.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Working with Aivy was a pleasure from start to finish. Their team took the time to understand our unique challenges and developed a custom AI solution that perfectly addressed our needs. The ROI has been exceptional.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="testimonial-author-image">
+                                <div class="testimonial-author-info">
+                                    <h4>Emma Rodriguez</h4>
+                                    <p>COO, GrowthFast Ltd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI-insikter & Nyheter</h2>
+                <p>Läs om de senaste trenderna inom AI och automation</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog1.jpg" alt="AI i vardagen" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">15 Mars 2024</span>
+                            <span class="category">AI-trends</span>
+                        </div>
+                        <h3>Hur AI förändrar arbetsplatsen 2024</h3>
+                        <p>En djupgående analys av hur AI-teknologi omformar arbetsplatser och skapar nya möjligheter för företag.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog2.jpg" alt="Automatisering" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">10 Mars 2024</span>
+                            <span class="category">Automatisering</span>
+                        </div>
+                        <h3>5 sätt att automatisera kundservice</h3>
+                        <p>Praktiska tips för att implementera AI-driven kundservice som förbättrar både effektivitet och kundnöjdhet.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="blog3.jpg" alt="Framtidens AI" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">5 Mars 2024</span>
+                            <span class="category">Framtiden</span>
+                        </div>
+                        <h3>Framtidens AI: Vad kommer härnäst?</h3>
+                        <p>En blick in i framtiden och hur kommande AI-innovationer kommer att påverka företag och samhälle.</p>
+                        <a href="#" class="read-more">Läs mer <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="blog-cta">
+                <a href="#" class="cta-button">Visa alla artiklar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vanliga frågor</h2>
+                <p>Svar på vanliga frågor om våra AI-automatiseringslösningar</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vilka branscher arbetar ni med?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi arbetar med ett brett spektrum av branscher inklusive e-handel, vård, finans, tillverkning och mer. Våra lösningar skräddarsys för att möta varje branschs specifika behov.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur lång tid tar det att implementera en AI-lösning?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Implementeringstiden varierar beroende på projektets omfattning och komplexitet. En typisk implementation kan ta mellan 2-6 månader, men vi kan också leverera mindre lösningar på några veckor.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur säker är AI-automatisering?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi prioriterar säkerhet i alla våra lösningar. Våra system är byggda med den senaste säkerhetstekniken och följer GDPR och andra relevanta dataskyddsregler. All känslig data krypteras och hanteras enligt strikta säkerhetsprotokoll.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vad händer med våra anställda när processer automatiseras?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vårt mål är att frigöra tid för ert team, inte att ersätta dem. Automatisering av rutinuppgifter låter er personal fokusera på mer värdeskapande arbete. Vi erbjuder också omställningsstöd och utbildning för att hjälpa ert team anpassa sig till de nya arbetsprocesserna.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Hur mäter ni framgången av en AI-implementation?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vi definierar tydliga KPI:er innan implementationen börjar och följer upp dem kontinuerligt. Vi mäter bland annat tidsbesparingar, kostnadsreducering, felreducering och medarbetarnas tillfredsställelse. Regelbundna utvärderingar säkerställer att lösningen levererar det förväntade värdet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakta oss</h2>
+                <p>Boka en AI-genomlysning av er verksamhet</p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Namn</label>
+                        <input type="text" id="name" name="name" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" name="email" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Företag</label>
+                        <input type="text" id="company" name="company" required aria-required="true" aria-invalid="false">
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Meddelande</label>
+                        <textarea id="message" name="message" rows="4" required aria-required="true" aria-invalid="false"></textarea>
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="submit-button">Skicka</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Tillbaka till toppen">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
-    <footer class="mt-20 py-10 text-center text-gray-500 text-sm">
-        <p>Join 140,000+ people using Aivy AI</p>
-        <p class="mt-2">⭐ 4.9 / 5.0 - 150 reviews | Featured in <span class="text-white font-bold">WIRED</span></p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span>Aivy</span>
+                    </div>
+                    <p>We help businesses leverage artificial intelligence for growth and efficiency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="mailto:info@aivy.com">info@aivy.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Aivy. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="scripts.js"></script> <!-- Länka till din JavaScript-fil -->
 </body>
 </html>
