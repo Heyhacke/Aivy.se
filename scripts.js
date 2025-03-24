@@ -250,12 +250,64 @@ contactForm.addEventListener('submit', (e) => {
 });
 
 // Mobile Menu Toggle
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    menuToggle.setAttribute("aria-expanded", navMenu.classList.contains("active"));
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', 
+                navMenu.classList.contains('active'));
+        });
+
+        // Stäng menyn när man klickar utanför
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Stäng menyn efter navigation
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Hantera orientering-ändringar
+    window.addEventListener('orientationchange', function() {
+        // Kort fördröjning för att låta layouten stabiliseras
+        setTimeout(() => {
+            window.scrollTo(0, window.scrollY);
+        }, 100);
+    });
+
+    // Förbättrad scroll-hantering för iOS
+    let touchStartY;
+    
+    document.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function(e) {
+        if (navMenu.classList.contains('active')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+});
+
+// Förhindra zoom på input fields i iOS
+document.addEventListener('touchstart', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        e.target.style.fontSize = '16px';
+    }
 });
 
 // Lägg till denna funktion bland dina andra JavaScript-funktioner
