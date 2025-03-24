@@ -108,15 +108,27 @@ nav ul li a:hover {
 }
 
 .header .cta-button {
-    margin-left: auto;
-    padding: 8px 15px;
-    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light);
     background: linear-gradient(45deg, var(--primary), var(--primary-light));
     border-radius: 8px;
-    color: var(--light);
+    text-decoration: none;
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .header .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* CTA Button */
