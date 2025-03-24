@@ -95,7 +95,7 @@ nav ul li::before {
 nav ul li a {
     color: var(--light);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     transition: color 0.3s ease;
     padding: 5px 0;
@@ -108,6 +108,14 @@ nav ul li a:hover {
 
 .header .cta-button {
     margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-light));
+    border-radius: 8px;
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 /* CTA Button */
@@ -555,51 +563,39 @@ nav ul li a:hover {
     background-color: var(--darker);
 }
 
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dela upp i två kolumner */
+    gap: 40px; /* Avstånd mellan kolumner */
+    align-items: start; /* Justera till toppen */
 }
 
-.contact-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+.value-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Avstånd mellan punkterna */
 }
 
-.contact-info p {
-    color: var(--gray);
-    margin-bottom: 30px;
-}
-
-.contact-details {
-    margin-bottom: 30px;
-}
-
-.contact-details-item {
+.value-point {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    color: var(--light);
 }
 
-.contact-icon {
-    width: 40px;
-    height: 40px;
-    background-color: var(--secondary);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-}
-
-.contact-icon i {
+.value-point i {
+    margin-right: 10px; /* Avstånd mellan ikon och text */
     color: var(--primary);
+    font-size: 1.5rem; /* Större ikon */
 }
 
 .contact-form {
     background: var(--secondary);
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -608,7 +604,7 @@ nav ul li a:hover {
 
 .form-group label {
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
     color: var(--light);
 }
@@ -617,12 +613,10 @@ nav ul li a:hover {
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    background-color: var(--dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 1rem;
-    color: var(--light);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
@@ -632,38 +626,20 @@ nav ul li a:hover {
     box-shadow: 0 0 0 2px rgba(110, 87, 224, 0.25);
 }
 
-.error-message {
-    color: var(--error);
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-}
-
 .submit-button {
     background-color: var(--primary);
-    color: var(--light);
-    padding: 1rem 2rem;
+    color: white;
+    padding: 0.75rem 2rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 1rem;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     width: 100%;
 }
 
 .submit-button:hover {
     background-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(110, 87, 224, 0.3);
-}
-
-.submit-button:active {
-    transform: translateY(0);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
 }
 
 /* Back to Top Button */
