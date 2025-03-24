@@ -47,51 +47,37 @@ body {
     height: 70px;
     background: rgba(15, 15, 27, 0.95);
     backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-content {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 250px 1fr 250px; /* Exakta mått för tre kolumner */
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-    padding-left: 20px;
+/* Logo positioning */
+.header .logo {
+    justify-self: start;
 }
 
-.logo img {
+.header .logo img {
     height: 50px;
     width: auto;
-    transition: transform 0.3s ease;
 }
 
-.logo:hover img {
-    transform: scale(1.05);
-}
-
-/* Navigation */
+/* Navigation centering */
 nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    justify-self: center;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 35px;
     margin: 0;
     padding: 0;
@@ -120,6 +106,11 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--primary);
+}
+
+/* CTA positioning */
+.header .cta-button {
+    justify-self: end;
 }
 
 /* CTA Button */
@@ -186,15 +177,15 @@ nav ul li a:hover {
     max-width: 800px;
     z-index: 2;
     color: var(--light);
+    text-align: center;
     margin: 0 auto;
-    width: 100%;
-    padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.3;
+    font-size: 3.2rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .subheadline {
