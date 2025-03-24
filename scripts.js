@@ -257,3 +257,28 @@ menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     menuToggle.setAttribute("aria-expanded", navMenu.classList.contains("active"));
 });
+
+// Lägg till denna funktion bland dina andra JavaScript-funktioner
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll för alla interna länkar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Om det är en mobilmeny, stäng den efter klick
+                const navMenu = document.querySelector('.nav-menu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    });
+});

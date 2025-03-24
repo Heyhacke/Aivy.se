@@ -42,12 +42,13 @@ body {
     left: 0;
     width: 100%;
     height: 70px;
-    background: rgba(15, 15, 27, 0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(15, 15, 27, 0.95);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     padding: 0 30px;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-content {
@@ -62,11 +63,17 @@ body {
     display: flex;
     align-items: center;
     margin-right: auto;
+    padding-left: 20px;
 }
 
 .logo img {
     height: 50px;
     width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
 }
 
 /* Navigation */
@@ -85,14 +92,24 @@ nav ul {
     align-items: center;
 }
 
+nav ul li {
+    position: relative;
+    border: none;
+}
+
+nav ul li::after,
+nav ul li::before {
+    display: none;
+}
+
 nav ul li a {
     color: var(--light);
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
     transition: color 0.3s ease;
-    display: inline-block;
     padding: 5px 0;
+    border: none;
 }
 
 nav ul li a:hover {
@@ -136,9 +153,13 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .subheadline {
@@ -162,6 +183,31 @@ nav ul li a:hover {
     background-color: var(--primary-light);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(110, 87, 224, 0.4);
+}
+
+/* Hero logo */
+.hero-logo {
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-logo img {
+    width: 400px;
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(110, 87, 224, 0.25));
+}
+
+/* Animation för hero-loggan */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Trust Elements */
@@ -727,6 +773,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero-logo img {
+        width: 300px;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -764,6 +814,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero-logo img {
+        width: 250px;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
