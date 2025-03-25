@@ -53,7 +53,7 @@ function initParticles() {
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 100,
                     "density": {
                         "enable": true,
                         "value_area": 1000
@@ -70,23 +70,23 @@ function initParticles() {
                     }
                 },
                 "opacity": {
-                    "value": 0.4,
+                    "value": 0.6,
                     "random": true
                 },
                 "size": {
-                    "value": 3,
+                    "value": 5,
                     "random": true
                 },
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
                     "color": "#ffffff",
-                    "opacity": 0.3,
-                    "width": 0.6
+                    "opacity": 0.4,
+                    "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 0.4,
+                    "speed": 1,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -99,7 +99,7 @@ function initParticles() {
                 "events": {
                     "onhover": {
                         "enable": true,
-                        "mode": "attract"
+                        "mode": "bounce"
                     },
                     "onclick": {
                         "enable": false
@@ -113,10 +113,9 @@ function initParticles() {
                             "opacity": 1
                         }
                     },
-                    "attract": {
-                        "distance": 250,
-                        "duration": 0.8,
-                        "speed": 0.3
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
                     }
                 }
             },
@@ -134,6 +133,88 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Existing initialization code
     setTimeout(typeEffect, 1000);
+
+    const messageField = document.getElementById('message');
+
+    messageField.addEventListener('focus', () => {
+        messageField.placeholder = ''; // Ta bort placeholder-texten
+    });
+
+    messageField.addEventListener('blur', () => {
+        if (messageField.value === '') {
+            messageField.placeholder = 'Vilken del av ert arbete känns mest manuell just nu?'; // Återställ placeholder-texten om fältet är tomt
+        }
+    });
+
+    const valuePoints = document.querySelectorAll('.value-point');
+    const infoBox = document.getElementById('infoBox');
+
+    valuePoints.forEach(point => {
+        point.addEventListener('click', (e) => {
+            const infoText = point.getAttribute('data-info');
+            infoBox.textContent = infoText;
+            infoBox.style.display = 'block';
+            infoBox.style.opacity = '0';
+            infoBox.style.transform = 'translateY(-10px)';
+
+            // Positionera infoBox under den klickade punkten
+            const rect = point.getBoundingClientRect();
+            infoBox.style.left = `${rect.left}px`;
+            infoBox.style.top = `${rect.bottom + window.scrollY}px`;
+
+            // Fade in animation
+            setTimeout(() => {
+                infoBox.style.opacity = '1';
+                infoBox.style.transform = 'translateY(0)';
+            }, 10);
+
+            // Stäng infoBox efter 5 sekunder
+            setTimeout(() => {
+                infoBox.style.opacity = '0';
+                infoBox.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    infoBox.style.display = 'none';
+                }, 300); // Vänta på animationen att slutföras
+            }, 5000);
+        });
+    });
+
+    // Stäng infoBox om användaren klickar utanför
+    document.addEventListener('click', (e) => {
+        if (!infoBox.contains(e.target) && !Array.from(valuePoints).some(point => point.contains(e.target))) {
+            infoBox.style.opacity = '0';
+            infoBox.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                infoBox.style.display = 'none';
+            }, 300);
+        }
+    });
+
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item.active').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+            } else {
+                faqItem.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
 });
 
 // Testimonial Carousel
@@ -155,20 +236,11 @@ testimonialDots.forEach((dot, index) => {
     });
 });
 
+// Automatisk slide
 setInterval(() => {
     currentSlide = (currentSlide + 1) % testimonialDots.length;
     showSlide(currentSlide);
 }, 5000);
-
-// FAQ Toggle
-const faqQuestions = document.querySelectorAll(".faq-question");
-
-faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
-        const faqItem = question.parentElement;
-        faqItem.classList.toggle("active");
-    });
-});
 
 // Back to Top Button
 const backToTopButton = document.getElementById('backToTop');
@@ -314,10 +386,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Förbättrad scroll-hantering för iOS
-    let touchStartY;
+    // let touchStartY; // Om den inte används, ta bort denna rad
     
     document.addEventListener('touchstart', function(e) {
-        touchStartY = e.touches[0].clientY;
+        // touchStartY = e.touches[0].clientY;
     }, { passive: true });
 
     document.addEventListener('touchmove', function(e) {
@@ -424,5 +496,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             fab.classList.remove('visible');
         }
+    });
+});
+document.addEventListener('mousemove', (event) => {
+    const particles = document.querySelectorAll('.particles-js canvas');
+    particles.forEach(particle => {
+        const rect = particle.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        particle.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
