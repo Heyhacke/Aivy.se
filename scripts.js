@@ -508,3 +508,17 @@ document.addEventListener('mousemove', (event) => {
         particle.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+
+// Sticky header
+const header = document.querySelector('.header');
+const originalHeight = header.offsetHeight;
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('sticky');
+        header.style.height = '60px'; // Minska höjd
+    } else {
+        header.classList.remove('sticky');
+        header.style.height = `${originalHeight}px`; // Återställ höjd
+    }
+});
